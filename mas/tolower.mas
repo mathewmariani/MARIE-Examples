@@ -4,46 +4,46 @@
 / #L27 		Adds the offset between upper and lower case letters on ascii table.
 /		0x41 ('A') 0x61 ('a') --> 0x20
 
-					ORG			0
-					LOAD		str_ptr
-					STORE		tolower_ptr
-					JNS			tolower
-					HALT
-
-tolower_itr,		DEC			0
-tolower_ptr,		HEX			0
-tolower_idx,		HEX			0
-tolower_offset,		HEX			20	
-tolower,			HEX			0
+			ORG		0
+			LOAD		str_ptr
+			STORE		tolower_ptr
+			JNS		tolower
+			HALT
+			
+tolower_itr,		DEC		0
+tolower_ptr,		HEX		0
+tolower_idx,		HEX		0
+tolower_offset,		HEX		20	
+tolower,		HEX		0
 tolower_while,		LOAD		tolower_ptr
-					ADD			tolower_itr
-					STORE		tolower_idx
-					CLEAR
-					ADDI		tolower_idx
-					SKIPCOND	400
-					JUMP		tolower_do
-					JUMPI		tolower
+			ADD		tolower_itr
+			STORE		tolower_idx
+			CLEAR
+			ADDI		tolower_idx
+			SKIPCOND	400
+			JUMP		tolower_do
+			JUMPI		tolower
 
-tolower_do,			ADD 		tolower_offset
-					OUTPUT
-					LOAD		tolower_itr
-					ADD 		ONE
-					STORE		tolower_itr
-					JUMP		tolower_while
+tolower_do,		ADD 		tolower_offset
+			OUTPUT
+			LOAD		tolower_itr
+			ADD 		ONE
+			STORE		tolower_itr
+			JUMP		tolower_while
 
-str_ptr,			HEX			18				/ memory location of str
-str,				HEX			48				/ H
-					HEX			45				/ E
-					HEX			4C				/ L
-					HEX			4C				/ L
-					HEX			4F				/ O
-					HEX			D				/ carriage return
-					HEX			57				/ W
-					HEX			4F				/ O
-					HEX			52				/ R
-					HEX			4C				/ L
-					HEX			44				/ D
-					HEX			0				/ NULL char
+str_ptr,		HEX		18			/ memory location of str
+str,			HEX		48			/ H
+			HEX		45			/ E
+			HEX		4C			/ L
+			HEX		4C			/ L
+			HEX		4F			/ O
+			HEX		D			/ carriage return
+			HEX		57			/ W
+			HEX		4F			/ O
+			HEX		52			/ R
+			HEX		4C			/ L
+			HEX		44			/ D
+			HEX		0			/ NULL char
 
 / constants
 ONE,				DEC		1
