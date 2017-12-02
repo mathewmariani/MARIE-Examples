@@ -1,0 +1,11 @@
+	ORG	0
+	LOAD	X	/ LOAD X into AC
+	ADD			/ ADD Y	to AC
+	STORE	Z	/ STORE AC in Z
+
+	LOAD	Z	/ LOAD Z into AC
+	OUTPUT		/ OUTPUT AC
+
+X,	DEC	1		/ variable declaration
+Y,	DEC	2		/ variable declaration
+Z,	DEC	0		/ variable declaration

@@ -1,0 +1,26 @@
+/ #L10 	Is beginning of an if control block, where an the value of an expression is determined.
+/	In this case were comparing `EXP` to 0.
+/ #L14	Is the body of the if statement, we output `IVALUE` and `JUMP` to `end`.
+/	We `JUMP` to avoid running code from `else`.
+/ #L18	Is the body of the else statement, we output `EVALUE` and continue running the program.
+/	Unlike the body of the if statment we don't need to `JUMP`; instead we can continue.
+/ #L11	If `EXP` is not 0 then then SKIPCOND will not skip over #L12 forcing a `JUMP`.
+
+	ORG		0
+if,	LOAD 		EXP	/ LOAD EXP into AC
+	SKIPCOND	400	/ SKIPCOND 400 (if AC = 0)
+	JUMP		else	/ JUMP to `else`
+        
+	LOAD		IVALUE  / LOAD IVALUE into AC
+	OUTPUT			/ OUTPUT value IVALUE
+	JUMP		end	/ JUMP to `end`
+
+else,	LOAD		EVALUE	/ LOAD IVALUE into AC
+	OUTPUT			/ OUTPUT value IVALUE
+
+end,	HALT			/ HALT
+
+/ variables
+EXP,	DEC		1
+IVALUE,	DEC		2
+EVALUE,	DEC		3

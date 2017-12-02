@@ -1,0 +1,54 @@
+        ORG             0
+Cond,   LOAD            COUNT   / Load count into AC
+        SUBT            TEN     / Remove 10 from count
+        SKIPCOND        000     / Skipcond 000 if AC < 0
+        JUMP            End     / End Loop
+        
+Loop,   LOAD	        COUNT	/ Load count into AC
+        ADD	        ONE 	/ Increment Count by 1
+        STORE	        COUNT	/ Store AC in count
+        JNS             Fibb
+        JUMP	        Cond	/ Check loop conditions
+        
+Fibb,   HEX             000     / Store value for JNS
+        CLEAR		        / AC = 0
+
+        / Fi = F1 + F2
+        ADD		F1      / AC + F1
+        ADD		F2      / AC + F2
+        STORE		Fi      / Fi = AC
+
+        / F1 = F2
+        LOAD		F2      / AC = F2
+        STORE		F1      / F1 = AC
+
+        / F2 = Fi
+        LOAD		Fi      / AC = Fi
+        STORE		F2      / F2 = AC 
+
+        / Quick Output
+        LOAD		Fi      / AC = FI
+        OUTPUT	                / Output AC
+
+        JUMPI		Fibb
+
+End,    HALT      		/ Halt process
+
+/ variables
+COUNT,	DEC	        0       / count for loop
+Fi,	DEC	        0
+F1,	DEC	        0
+F2,	DEC	        1
+
+/ constant values
+ZERO,	DEC	        0
+ONE,	DEC	        1
+TWO,	DEC	        2
+THREE,	DEC	        3
+FOUR,	DEC	        4
+FIVE,	DEC	        5
+SIX,	DEC	        6
+SEVEN,	DEC	        7
+EIGHT,	DEC	        8
+NINE,	DEC	        9
+TEN,	DEC	        10

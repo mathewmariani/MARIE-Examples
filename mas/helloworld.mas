@@ -1,0 +1,33 @@
+			ORG			0			/ implemented using "do while" loop
+WHILE,		LOAD		STR_PTR		/ load str_base into ac
+			ADD			ITR			/ add index to str_base
+			STORE		INDEX		/ store (str_base + index) into ac
+			CLEAR					/ set ac to zero
+			ADDI		INDEX		/ get the value at ADD
+			SKIPCOND	400			/ SKIP if AC = 0 (or null char)
+			JUMP		DO			/ jump to DO
+			JUMP		END			/ JUMP to END
+
+DO,			OUTPUT					/ output value at ADD
+			LOAD		ITR			/ load iterator into ac
+			ADD			ONE			/ increment iterator by one
+			STORE		ITR			/ store ac in iterator
+			JUMP		WHILE		/ jump to while
+
+END,		HALT
+ONE,		DEC			1
+ITR,		DEC			0
+INDEX,		HEX			0
+STR_PTR,	HEX			12			/ memory location of str
+STR,		HEX			48			/ H
+			HEX			65			/ E
+			HEX			6C			/ L
+			HEX			6C			/ L
+			HEX			6F			/ O
+			HEX			D			/ carriage return
+			HEX			57			/ W
+			HEX			6F			/ O
+			HEX			72			/ R
+			HEX			6C			/ L
+			HEX			64			/ D
+			HEX			0			/ NULL char

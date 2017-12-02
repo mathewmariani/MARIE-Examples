@@ -1,0 +1,31 @@
+		ORG			0			/ implemented using a "for" loop
+Cond,	LOAD		COUNT		/ LOAD count into AC
+		SUBT		TEN			/ SUBTRACT 10 from AC
+		SKIPCOND	000			/ Skipcond 000 if AC < 0
+		JUMP		End			/ JUMP to End
+
+Loop,	LOAD		COUNT		/ LOAD Count into AC
+		ADD			ONE			/ ADD ONE to AC
+		STORE		COUNT		/ STORE AC into COUNT
+
+		LOAD		COUNT		/ LOAD count into AC
+		OUTPUT					/ OUTPUT AC
+
+		JUMP		Cond		/ JUMP to Cond
+
+End,	HALT					/ HALT process
+
+COUNT,	DEC			0
+
+/ constant values
+ZERO,	DEC			0
+ONE,	DEC			1
+TWO,	DEC			2
+THREE,	DEC			3
+FOUR,	DEC			4
+FIVE,	DEC			5
+SIX,	DEC			6
+SEVEN,	DEC			7
+EIGHT,	DEC			8
+NINE,	DEC			9
+TEN,	DEC			10
