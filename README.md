@@ -3,6 +3,7 @@
 A collection of small programs written in MARIE.
 
 | file | LoC | description |
+| ---- | --- | ----------- |
 | **[addition.mas](mas/addition.mas)** | 11 | Introductory program to display simple addition. |
 | **[array.mas](mas/array.mas)** | 47 | Simple representation of an array data structure and interation. |
 | **[dowhile.mas](mas/dowhile.mas)** | 47 | Introductory program to iteration using for do while loops. |
