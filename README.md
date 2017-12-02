@@ -11,9 +11,14 @@ A collection of small programs written in MARIE.
 | **[function.mas](mas/function.mas)** | 25 | Introductory program to function calls. |
 | **[helloworld.mas](mas/helloworld.mas)** | 33 | String iteration using loops. |
 | **[ifelse.mas](mas/ifelse.mas)** | 26 | Introductory program to control-flow statements. |
+| **[stack.mas](mas/stack.mas)** | 129 | An example of an array based stack data structure. |
 | **[subtraction.mas](mas/subtraction.mas)** | 11 | Introductory program to display simple subtraction. |
 | **[tolower.mas](mas/tolower.mas)** | 49 | Converts a string to lower-case ASCII characters. |
 | **[usrin.mas](mas/usrin.mas)** | 34 | Introductory program to using user input. |
+
+## Notes
+
+It's important to note that these programs are not easily adaptable. Since pointers are set by hand, any changes to the code will invalidate all pointers (wild pointers) causing unexpected behavior.
 
 ## Acknowledgements
 

@@ -1,0 +1,129 @@
+/ stack.mas
+/ #L14-31		Loops through the stack poping values (16, 8, 4, 2, 0) from the stack, and displays 1 if the stack is empty.
+/ #L33-50		Loops through the stack pushing values (1, 2, 3, 4, 5) onto the stack, peeks the top and displays 1 if the stack is full.
+/ #L56-63		Defines the stack object.
+/ #L65-74		Defines the stack function `push`.
+/ #L76-85		Defines the stack function `pop`.
+/ #L87-90		Defines the stack function `peek`.
+/ #L92-102		Defines the stack function `full`.
+/ #L105-114		Defines the stack function `empty`.
+/ #L116-129		Defines constants such as `true` and `false`.
+
+				ORG			0
+
+pop_cond,		LOAD		count
+				SUBT		stack
+				SKIPCOND	000
+				JUMP		pop_end
+
+pop_loop,		LOAD		count
+				ADD			one
+				STORE		count
+				LOAD		count
+				JNS			stack_pop
+				OUTPUT
+				JUMP		pop_cond
+
+pop_end,		JNS			stack_empty
+				OUTPUT
+				CLEAR
+				STORE 		count
+				JUMP 		push_cond
+
+push_cond,		LOAD		count
+				SUBT		stack
+				SKIPCOND	000
+				JUMP		push_end
+
+push_loop,		LOAD		count
+				ADD			one
+				STORE		count
+				LOAD 		count
+				STORE 		stack_push_v
+				JNS			stack_push
+				JNS			stack_peek
+				OUTPUT
+				JUMP		push_cond
+
+push_end,		JNS			stack_full
+				OUTPUT
+				HALT
+
+/ variables
+count,			DEC 		0
+
+/ stack object
+stack_top,		HEX			0x28			/ pointer to the top of the stack
+stack_ptr,		HEX			0x23			/ pointer to the head of the array
+stack,			DEC 		5				/ size of our stack
+				DEC			0				/ index 0
+				DEC			2				/ index 1
+				DEC			4				/ index 2
+				DEC			8				/ index 3
+				DEC			16				/ index 4
+
+stack_push_v,	DEC 		0				/ function argument for `push`
+stack_push,		HEX			0				/ function declaration for `push`
+				CLEAR
+				LOAD		stack_top
+				ADD 		one
+				STORE		stack_top
+				LOAD 		stack_push_v
+				STOREI		stack_top
+				CLEAR
+				JUMPI 		stack_push
+
+stack_pop_ret,	DEC 		0				/ return value for `pop`
+stack_pop,		HEX			0				/ function declaration for `pop`
+				CLEAR
+				LOADI		stack_top
+				STORE 		stack_pop_ret
+				LOAD 		stack_top
+				SUBT 		one
+				STORE		stack_top
+				LOAD 		stack_pop_ret
+				JUMPI		stack_pop
+
+stack_peek,		HEX			0				/ function declaration for `peek`
+				CLEAR
+				LOADI		stack_top
+				JUMPI		stack_peek
+
+stack_full,		HEX			0				/ function declaration for `full`
+				CLEAR
+stack_full_if,	LOAD 		stack_ptr
+				ADD			stack
+				SUBT 		stack_top
+				SKIPCOND	400
+				JUMP		stack_full_el
+				LOAD		true
+				JUMPI		stack_full
+stack_full_el,	LOAD 		false
+				JUMPI		stack_full
+
+
+stack_empty,	HEX			0				/ function declaration for `empty`
+				CLEAR
+stack_empty_if,	LOAD 		stack_top
+				SUBT 		stack_ptr
+				SKIPCOND	400
+				JUMP		stack_empty_el
+				LOAD		true
+				JUMPI		stack_empty
+stack_empty_el,	LOAD 		false
+				JUMPI		stack_empty
+
+/ constants
+false,			HEX 		0x00
+true,			HEX 		0x01
+zero,			HEX			0x00
+one,			HEX			0x01
+two,			HEX			0x02
+three,			HEX			0x03
+four,			HEX			0x04
+five,			HEX			0x05
+six,			HEX			0x06
+seven,			HEX			0x07
+eight,			HEX			0x08
+nine,			HEX			0x09
+ten,			HEX			0x0A
