@@ -1,0 +1,15 @@
+/ overflow.mas
+/ example of an integer overflow
+/ The OutReg is an 8-bit register. This means it can only handle numbers
+/ between [0, (2^8 - 1)], and since data is represented in two's complement,
+/ only numbers between [-2^7, (2^7-1)] can be represented.
+/ anything exceeding this range will cause an overflow.
+/ 0xFF will display as -1 in decimal
+
+		ORG			0
+		LOAD		X		/ LOAD X into AC
+		ADD			Y		/ ADD Y	to AC
+		OUTPUT				/ OUTPUT AC
+		HALT
+X,		HEX			FE		/ variable declaration
+Y,		HEX			1		/ variable declaration
