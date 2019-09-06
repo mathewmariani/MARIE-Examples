@@ -1,0 +1,23 @@
+/ This program presents a modulo operation.
+/ defined as: 11 - 3 = 8, 9 - 3 = 5, 11 - 3 = 2
+/ where the remainder is returned.
+
+			ORG			0
+
+WHILE,		LOAD		A			/ load A into AC
+			SUBT		B			/ subt B from AC
+			SKIPCOND	000			/ skip if AC < 0
+			JUMP		DO			/ jump to DO
+			JUMP		END			/ jump to END
+
+DO,			LOAD		A			/ load A into AC
+			SUBT		B			/ subt B from AC
+			STORE		A			/ store AC in A
+			JUMP		WHILE		/ jump to while
+
+END,		LOAD 		A			/ load A into AC
+			OUTPUT					/ load AC into OUT
+			HALT
+
+A,			DEC			11
+B,			DEC			3

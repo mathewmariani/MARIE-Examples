@@ -11,6 +11,7 @@ A collection of small programs written in MARIE.
 | **[function.mas](mas/function.mas)** | 25 | Introductory program to function calls. |
 | **[helloworld.mas](mas/helloworld.mas)** | 33 | String iteration using loops. |
 | **[ifelse.mas](mas/ifelse.mas)** | 26 | Introductory program to control-flow statements. |
+| **[modulo.mas](mas/modulo.mas)** | 23 | Example of a modulo operation. |
 | **[overflow.mas](mas/overflow.mas)** | 16 | An example of integer overflow. |
 | **[stack.mas](mas/stack.mas)** | 129 | An example of an array based stack data structure. |
 | **[subtraction.mas](mas/subtraction.mas)** | 11 | Introductory program to display simple subtraction. |
