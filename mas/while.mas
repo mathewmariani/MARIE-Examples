@@ -1,0 +1,17 @@
+/ This program presents a simple while loop.
+
+			ORG			0
+WHILE,		LOAD		COUNT		/ load count into AC
+			SKIPCOND	400			/ skip if AC == 0
+			JUMP		DO			/ jump to DO
+			JUMP		END			/ jump to END
+
+DO,			LOAD		COUNT
+			OUTPUT					/ output value at ADD
+			SUBT		ONE			/ subtract one from AC
+			STORE		COUNT		/ store AC in count
+			JUMP		WHILE		/ jump to while
+
+END,		HALT
+COUNT,		DEC			5
+ONE,		DEC			1
