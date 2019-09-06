@@ -1,0 +1,23 @@
+/ Simple variable swap betweem two ASCII characters.
+
+		ORG 0
+
+		LOAD		A
+		STORE		I
+
+		LOAD		B
+		STORE		A
+
+		LOAD		I
+		STORE		B
+
+		LOAD 		A
+		OUTPUT
+		LOAD 		B
+		OUTPUT
+
+		HALT
+
+A,		HEX			0x41
+B,		HEX			0x42
+I,		HEX			0x00

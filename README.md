@@ -14,6 +14,7 @@ A collection of small programs written in MARIE.
 | **[overflow.mas](mas/overflow.mas)** | 16 | An example of integer overflow. |
 | **[stack.mas](mas/stack.mas)** | 129 | An example of an array based stack data structure. |
 | **[subtraction.mas](mas/subtraction.mas)** | 11 | Introductory program to display simple subtraction. |
+| **[swap.mas](mas/swap.mas)** | 24 | Simple variable swap betweem two ASCII characters. |
 | **[tolower.mas](mas/tolower.mas)** | 49 | Converts a string to lower-case ASCII characters. |
 | **[usrin.mas](mas/usrin.mas)** | 34 | Introductory program to using user input. |
 | **[while.mas](mas/while.mas)** | 17 | Introductory program to iteration using while loops. |
