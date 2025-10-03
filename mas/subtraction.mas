@@ -5,6 +5,7 @@
 
 	LOADZ		/ LOAD Z into AC
 	OUTPUT		/ OUTPUT AC
+	HALT
 
 X,	DEC		2	/ variable declaration
 Y,	DEC		1	/ variable declaration
